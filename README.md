@@ -1,14 +1,14 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+For the todo app we focused on Object Orientated programming, Javascript classes, modules, and interfaces.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+For the functionality using OOP we made updates to the pproject.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Formavalidation update example = If I try to create a new todo, if I for example enter in 1 letter the submit button will not be enabled.
 
 ## Deployment
 
