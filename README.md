@@ -10,7 +10,7 @@ For the functionality using OOP we made updates to the pproject.
 
 Formavalidation update example = If I try to create a new todo, if I for example enter in 1 letter the submit button will not be enabled.
 
-![Web form showing a todo input field with a disabled submit button because the entered text is too short, displayed in a browser-style page layout with form labels and instructions](/images/fvtextlengthshort.png)
+![Web form showing a todo input field with a disabled submit button because the entered text is too short, displayed in a browser-style page layout with form labels and instructions](../images/fvtextlengthshort.png)
 
 I also used the export and import statements for the javascripts modules.
 
