@@ -18,7 +18,7 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    if (this._inputList.some((inputElement) => !inputElement.validity.valid)) {
+    if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
       this._buttonElement.disabled = true;
     } else {
@@ -57,8 +57,8 @@ class FormValidator {
     const errorElement = inputElement.nextElementSibling;
     if (errorElement && errorElement.classList.contains("error")) {
       errorElement.textContent = errorMessage;
+      errorElement.classList.add(this._errorClass);
     }
-    errorElement.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
