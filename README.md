@@ -12,17 +12,6 @@ Formavalidation update example = If I try to create a new todo, if I for example
 
 ![alt text](./images/fvtextlengthshort.png)
 
-I also used the export and import statements for the javascripts modules.
-
-I used default for the singles values
-
-Examples -
-![Default Export](<images/default exports.jpg>)
-I used named for the multiple values.
-
-Example -
-![alt text](image.png)
-
 ## Deployment
 
 This project is deployed on GitHub Pages:
