@@ -55,7 +55,7 @@ class FormValidator {
   _showInputError(inputElement, errorMessage) {
     inputElement.classList.add(this._inputErrorClass);
     const errorElement = inputElement.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("error")) {
+    if (errorElement && errorElement.classList.contains("popup__error")) {
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._errorClass);
     }
@@ -64,7 +64,7 @@ class FormValidator {
   _hideInputError(inputElement) {
     inputElement.classList.remove(this._inputErrorClass);
     const errorElement = inputElement.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("error")) {
+    if (errorElement && errorElement.classList.contains("popup__error")) {
       errorElement.textContent = "";
       errorElement.classList.remove(this._errorClass);
     }

@@ -30,14 +30,15 @@ class Todo {
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
 
     todoNameEl.textContent = this._data.name;
-    todoDate.textContent = `Due: ${new Date(this._data.date).toLocaleString(
-      "en-US",
-      {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      },
-    )}`;
+    let dateObj =
+      this._data.date instanceof Date
+        ? this._data.date
+        : new Date(this._data.date);
+    if (isNaN(dateObj.getTime())) {
+      todoDate.textContent = "";
+    } else {
+      todoDate.textContent = dateObj.toLocaleDateString();
+    }
     this._generateCheckboxEl();
     this._setupEventListeners();
 
