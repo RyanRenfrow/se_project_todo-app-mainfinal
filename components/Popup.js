@@ -1,15 +1,47 @@
 class Popup {
   constructor(popupSelector) {
-    this._popup = document.querySelector(popupSelector);
+    this._popupElement = document.querySelector(popupSelector);
+    this.popupcloseBtn = this._popupElement.querySelector(".popup__close");
+  }
+
+  _handleEscapeClose(evt) {
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  }
+
+  _handleoverlayClose(evt) {
+    if (evt.target === evt.currentTarget) {
+      this.close();
+    }
   }
 
   open() {
-    this._popup.classList.add("popup_visible");
+    if (this._popupElement) {
+      this._popupElement.classList.add("popup_visible");
+      document.addEventListener("keydown", this._handleEscapeClose.bind(this));
+    }
   }
 
   close() {
-    this._popup.classList.remove("popup_visible");
+    if (this._popupElement) {
+      this._popupElement.classList.remove("popup_visible");
+      document.removeEventListener(
+        "keydown",
+        this._handleEscapeClose.bind(this),
+      );
+    }
+  }
+
+  setEventListeners() {
+    this.popupcloseBtn.addEventListener("mousedown", (evt) => {
+      evt.preventDefault();
+      this.close();
+    });
+    this._popupElement.addEventListener(
+      "mousedown",
+      this._handleoverlayClose.bind(this),
+    );
   }
 }
-
 export default Popup;
