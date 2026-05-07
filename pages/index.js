@@ -9,13 +9,10 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopupEl = document.querySelector("#add-todo-popup");
+
 const addTodoForm = document.forms["add-todo-form"];
-const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
-
-const todosList = document.querySelector(".todos__list");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
@@ -34,28 +31,9 @@ const addTodoPopup = new PopupWithForm({
   },
 });
 
-const popup = new Popup("#add-todo-popup");
-popup.setEventListeners();
-
 addTodoPopup.setEventListeners();
 
-function hqndleEscapeKey(evt) {
-  if (evt.key === "Escape") {
-    const openPopup = document.querySelector(".popup_visible");
-    if (openPopup) {
-      openPopup.classList.remove("popup_visible");
-    }
-  }
-}
 
-function handleOverlayClick(evt) {
-  if (evt.target.classList.contains("popup_visible")) {
-    evt.target.classList.remove("popup_visible");
-  }
-}
-
-document.addEventListener("keydown", hqndleEscapeKey);
-document.addEventListener("click", handleOverlayClick);
 
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
@@ -77,24 +55,16 @@ const generateTodo = (data) => {
 
 const section = new Section({
   items: initialTodos,
-  renderer: function (item) {
+  renderer: (item) => {
     const todoElement = generateTodo(item);
-    this._container.append(todoElement);
+    section.addItem(todoElement);
   },
   containerSelector: ".todos__list",
 });
 section.renderItems();
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
-
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
-
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopupEl);
+  addTodoPopup.open();
 });
 
 const renderTodo = (item) => {
